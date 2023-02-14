@@ -1,10 +1,16 @@
-import { Box, Typography } from '@mui/material';
+import { Header, Footer } from '~/components';
 
-const Layout = () => {
+type Props = {
+  children: React.ReactNode;
+};
+
+const Layout = ({ children }: Props) => {
   return (
-    <Box>
-      <Typography>Layout</Typography>
-    </Box>
+    <>
+      <Header />
+      {children}
+      <Footer />
+    </>
   );
 };
 
