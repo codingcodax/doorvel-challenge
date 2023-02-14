@@ -1,10 +1,11 @@
+import { Box, Typography } from '@mui/material';
 import { type NextPage } from 'next';
 
 const Home: NextPage = () => {
   return (
-    <div>
-      <p>Home page</p>
-    </div>
+    <Box>
+      <Typography>Home page</Typography>
+    </Box>
   );
 };
 
