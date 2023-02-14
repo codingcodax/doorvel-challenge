@@ -1,11 +1,11 @@
 import { Box, Typography } from '@mui/material';
 
-const Card = () => {
+const Cards = () => {
   return (
     <Box>
-      <Typography>Card</Typography>
+      <Typography>Cards</Typography>
     </Box>
   );
 };
 
-export default Card;
+export default Cards;
