@@ -2,6 +2,7 @@ import type {
   RawAmenityParent,
   RawAmenityChild,
   AmenityChild,
+  AmenityParent,
 } from '~/types/amenities';
 
 export const getAmenitiesParents = async () => {
@@ -15,8 +16,10 @@ export const getAmenitiesParents = async () => {
 };
 
 export const getAmenityParent = async (id: number) => {
-  const amenitiesParents = await getAmenitiesParents();
-  const amenityParent = amenitiesParents.filter((amenity) => amenity.id === id);
+  const res = await fetch(
+    `http://54.177.198.128:8001/api/cat-amenities-parents/${id}`
+  );
+  const amenityParent = (await res.json()) as AmenityParent;
 
   return amenityParent;
 };
