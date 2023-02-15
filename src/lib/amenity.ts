@@ -1,4 +1,8 @@
-import type { RawAmenityParent, RawAmenityChild } from '~/types/amenities';
+import type {
+  RawAmenityParent,
+  RawAmenityChild,
+  AmenityChild,
+} from '~/types/amenities';
 
 export const getAmenitiesParents = async () => {
   const res = await fetch(
@@ -17,6 +21,16 @@ export const getAmenityParent = async (id: number) => {
   return amenityParent;
 };
 
+export const getAmenitiesChilds = async () => {
+  const res = await fetch(
+    'http://54.177.198.128:8001/api/cat-amenities-childs/'
+  );
+
+  const { results: amenitiesChilds } = (await res.json()) as RawAmenityChild;
+
+  return amenitiesChilds;
+};
+
 export const getAmenitiesChildsByParentId = async (id: number) => {
   const res = await fetch(
     'http://54.177.198.128:8001/api/cat-amenities-childs/'
@@ -29,4 +43,14 @@ export const getAmenitiesChildsByParentId = async (id: number) => {
   );
 
   return amenitiesChildsFilter;
+};
+
+export const getAmenityChild = async (id: number) => {
+  const res = await fetch(
+    `http://54.177.198.128:8001/api/cat-amenities-childs/${id}`
+  );
+
+  const amenityChild = (await res.json()) as AmenityChild;
+
+  return amenityChild;
 };
