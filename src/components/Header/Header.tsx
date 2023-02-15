@@ -1,17 +1,37 @@
-import { Box, Typography } from '@mui/material';
+import { Box, Container, Grid, Typography } from '@mui/material';
+
+import { LogoIcon } from '~/components/icons';
+
+import { Link } from '../ui';
 
 const Header = () => {
   return (
-    <Box pt={1}>
-      <Typography
-        component='h1'
-        fontSize={20}
-        fontWeight='bold'
-        textAlign='center'
+    <Container maxWidth='lg'>
+      <Grid
+        container
+        alignItems='center'
+        direction='row'
+        justifyContent='center'
+        pt={1}
       >
-        Cat Amenities
-      </Typography>
-    </Box>
+        <LogoIcon />
+        <Typography
+          component='h1'
+          fontSize={20}
+          fontWeight='bold'
+          lineHeight='1'
+          ml={2}
+        >
+          <Link
+            noLinkStyle
+            href='/'
+            sx={{ color: '#000', textDecoration: 'none' }}
+          >
+            Cat Amenities
+          </Link>
+        </Typography>
+      </Grid>
+    </Container>
   );
 };
 
