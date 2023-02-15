@@ -3,22 +3,14 @@ import { Box, Typography } from '@mui/material';
 
 import type { AmenityParent } from '~/types/amenities';
 import Cards from '~/components/Cards';
-
-type DataProps = {
-  data: AmenityParent[];
-  date_recived: Record<string, never>;
-};
+import { getAmenitiesParents } from '~/lib/amenity';
 
 export const getStaticProps: GetStaticProps<{
   amenitiesParents: AmenityParent[];
 }> = async () => {
-  const res = await fetch(
-    'http://54.177.198.128:8001/api/cat-amenities-parents/'
-  );
+  const amenitiesParents = await getAmenitiesParents();
 
-  const data = (await res.json()) as DataProps;
-
-  return { props: { amenitiesParents: data.data } };
+  return { props: { amenitiesParents } };
 };
 
 type HomeProps = {
@@ -34,7 +26,7 @@ const Home: NextPage<HomeProps> = ({ amenitiesParents }) => {
       </Typography>
       <Typography>Select one:</Typography>
 
-      <Cards items={amenitiesParents} />
+      <Cards items={amenitiesParents} amenityType='parent' />
     </Box>
   );
 };
