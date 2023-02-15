@@ -26,7 +26,7 @@ const ChildCards = ({ items }: Props) => {
             amenityType='child'
             id={item.id}
             name={item.name}
-            side={item.property_category}
+            side={`Category ID: ${item.property_category}`}
           />
         </Grid>
       ))}
