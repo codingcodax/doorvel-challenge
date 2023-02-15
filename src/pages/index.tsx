@@ -2,6 +2,7 @@ import type { GetStaticProps, NextPage } from 'next';
 import { Box, Typography } from '@mui/material';
 
 import type { AmenityParent } from '~/types/amenities';
+import Cards from '~/components/Cards';
 
 type DataProps = {
   data: AmenityParent[];
@@ -27,8 +28,13 @@ type HomeProps = {
 // eslint-disable-next-line react/prop-types
 const Home: NextPage<HomeProps> = ({ amenitiesParents }) => {
   return (
-    <Box>
-      <Typography>Home page</Typography>
+    <Box px={1}>
+      <Typography component='h2' textAlign='center' textTransform='uppercase'>
+        Parents
+      </Typography>
+      <Typography>Select one:</Typography>
+
+      <Cards items={amenitiesParents} />
     </Box>
   );
 };
