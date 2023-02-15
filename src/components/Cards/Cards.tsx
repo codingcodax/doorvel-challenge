@@ -16,6 +16,8 @@ const Cards = ({ items }: Props) => {
           key={item.id}
           item
           component='li'
+          lg={3}
+          md={4}
           sm={6}
           sx={{ listStyleType: 'none' }}
           xs={12}
