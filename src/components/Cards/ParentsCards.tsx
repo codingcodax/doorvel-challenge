@@ -26,7 +26,7 @@ const ParentsCards = ({ items }: Props) => {
             amenityType='parent'
             id={item.id}
             name={item.name}
-            side={item.created_by}
+            side={`Created by: ${item.created_by}`}
           />
         </Grid>
       ))}
