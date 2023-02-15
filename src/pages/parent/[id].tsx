@@ -1,5 +1,5 @@
 import type { GetStaticProps, NextPage } from 'next';
-import { Box, Typography } from '@mui/material';
+import { Box, Container, Typography } from '@mui/material';
 
 import type { AmenityChild } from '~/types/amenities';
 import {
@@ -34,14 +34,16 @@ type ParentProps = {
 // eslint-disable-next-line react/prop-types
 const Parent: NextPage<ParentProps> = ({ amenitiesChilds }) => {
   return (
-    <Box px={1}>
-      <Typography component='h2' textAlign='center' textTransform='uppercase'>
-        Parent:
-      </Typography>
-      <Typography>Select one:</Typography>
+    <Container maxWidth='lg'>
+      <Box>
+        <Typography component='h2' textAlign='center' textTransform='uppercase'>
+          Parent:
+        </Typography>
+        <Typography>Select one:</Typography>
 
-      <ChildsCards items={amenitiesChilds} />
-    </Box>
+        <ChildsCards items={amenitiesChilds} />
+      </Box>
+    </Container>
   );
 };
 

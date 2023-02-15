@@ -1,4 +1,4 @@
-import { Box, Typography } from '@mui/material';
+import { Box, Container, Typography } from '@mui/material';
 import type { GetServerSideProps, NextPage } from 'next';
 
 import { getAmenityChild } from '~/lib/amenity';
@@ -20,11 +20,13 @@ type ChildProps = {
 // eslint-disable-next-line react/prop-types
 const Child: NextPage<ChildProps> = ({ amenityChild }: ChildProps) => {
   return (
-    <Box>
-      <Typography>Name: {amenityChild.name}</Typography>
-      <Typography>Parent ID: {amenityChild.id}</Typography>
-      <Typography>Category ID: {amenityChild.property_category}</Typography>
-    </Box>
+    <Container maxWidth='lg'>
+      <Box>
+        <Typography>Name: {amenityChild.name}</Typography>
+        <Typography>Parent ID: {amenityChild.id}</Typography>
+        <Typography>Category ID: {amenityChild.property_category}</Typography>
+      </Box>
+    </Container>
   );
 };
 
