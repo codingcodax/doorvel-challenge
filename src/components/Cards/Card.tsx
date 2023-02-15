@@ -8,9 +8,10 @@ type Props = {
   id: AmenityParent['id'] | AmenityChild['id'];
   side: AmenityParent['created_by'] | AmenityChild['amenity_parent'];
   name: AmenityParent['name'] | AmenityChild['name'];
+  amenityType: 'parent' | 'child';
 };
 
-const MyCard = ({ id, side, name }: Props) => {
+const MyCard = ({ id, side, name, amenityType }: Props) => {
   return (
     <Card sx={{ boxShadow: 'none' }}>
       <CardContent>
@@ -23,7 +24,11 @@ const MyCard = ({ id, side, name }: Props) => {
           </Grid>
 
           <Grid item xs='auto'>
-            <Button noLinkStyle component={Link} href={`/parent/${id}`}>
+            <Button
+              noLinkStyle
+              component={Link}
+              href={`/${amenityType === 'parent' ? 'parent' : 'child'}/${id}`}
+            >
               <ArrowForwardIos />
             </Button>
           </Grid>
