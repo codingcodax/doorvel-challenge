@@ -2,6 +2,7 @@ import { Card, Button, CardContent, Typography, Grid } from '@mui/material';
 import { ArrowForwardIos } from '@mui/icons-material';
 
 import type { AmenityParent } from '~/types/amenities';
+import { Link } from '~/components/ui';
 
 type Props = {
   side: AmenityParent['created_by'];
@@ -21,7 +22,7 @@ const MyCard = ({ side, name }: Props) => {
           </Grid>
 
           <Grid item xs='auto'>
-            <Button>
+            <Button noLinkStyle component={Link} href='/'>
               <ArrowForwardIos />
             </Button>
           </Grid>
