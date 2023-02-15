@@ -6,7 +6,7 @@ import {
   getAmenitiesParents,
   getAmenitiesChildsByParentId,
 } from '~/lib/amenity';
-import Cards from '~/components/Cards';
+import { ChildsCards } from '~/components';
 
 export const getStaticPaths = async () => {
   const amenitiesParents = await getAmenitiesParents();
@@ -36,11 +36,11 @@ const Parent: NextPage<ParentProps> = ({ amenitiesChilds }) => {
   return (
     <Box px={1}>
       <Typography component='h2' textAlign='center' textTransform='uppercase'>
-        Parents
+        Parent:
       </Typography>
       <Typography>Select one:</Typography>
 
-      <Cards amenityType='child' items={amenitiesChilds} />
+      <ChildsCards items={amenitiesChilds} />
     </Box>
   );
 };

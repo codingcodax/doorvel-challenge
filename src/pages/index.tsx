@@ -2,8 +2,8 @@ import type { GetStaticProps, NextPage } from 'next';
 import { Box, Typography } from '@mui/material';
 
 import type { AmenityParent } from '~/types/amenities';
-import Cards from '~/components/Cards';
 import { getAmenitiesParents } from '~/lib/amenity';
+import { ParentsCards } from '~/components';
 
 export const getStaticProps: GetStaticProps<{
   amenitiesParents: AmenityParent[];
@@ -26,7 +26,7 @@ const Home: NextPage<HomeProps> = ({ amenitiesParents }) => {
       </Typography>
       <Typography>Select one:</Typography>
 
-      <Cards items={amenitiesParents} amenityType='parent' />
+      <ParentsCards items={amenitiesParents} />
     </Box>
   );
 };
