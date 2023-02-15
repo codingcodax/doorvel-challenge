@@ -16,5 +16,12 @@ export const amenityChild = z.object({
   name: z.string(),
   seo_friendly: z.string(),
   property_category: z.number(),
-  amenityParent: z.number(),
+  amenity_parent: z.number(),
+});
+
+export const rawAmenityChild = z.object({
+  count: z.number(),
+  next: z.string().nullish(),
+  previous: z.string().nullish(),
+  results: z.array(amenityChild),
 });
