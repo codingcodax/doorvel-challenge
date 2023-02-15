@@ -22,7 +22,12 @@ const ChildCards = ({ items }: Props) => {
           sx={{ listStyleType: 'none' }}
           xs={12}
         >
-          <Card id={item.id} name={item.name} side={item.property_category} />
+          <Card
+            amenityType='child'
+            id={item.id}
+            name={item.name}
+            side={item.property_category}
+          />
         </Grid>
       ))}
     </Grid>
@@ -30,4 +35,3 @@ const ChildCards = ({ items }: Props) => {
 };
 
 export default ChildCards;
-
