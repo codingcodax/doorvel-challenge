@@ -1,10 +1,19 @@
-import { Box, Typography } from '@mui/material';
+import { KeyboardArrowLeft } from '@mui/icons-material';
+import { Button, useMediaQuery } from '@mui/material';
 
-const GoBack = () => {
+import { Link } from '~/components/ui';
+
+type Props = {
+  href: string;
+};
+
+const GoBack = ({ href }: Props) => {
+  const matches = useMediaQuery('(min-width:600px)');
   return (
-    <Box>
-      <Typography>Go Back</Typography>
-    </Box>
+    <Button component={Link} href={href} sx={{ mr: 1, justifySelf: 'start' }}>
+      <KeyboardArrowLeft />
+      {matches ? 'Go Back' : ''}
+    </Button>
   );
 };
 
