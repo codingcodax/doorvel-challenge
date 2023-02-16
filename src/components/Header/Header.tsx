@@ -12,6 +12,7 @@ const Header = () => {
         alignItems='center'
         direction='row'
         justifyContent='center'
+        mb={2}
         pt={1}
       >
         <LogoIcon />
