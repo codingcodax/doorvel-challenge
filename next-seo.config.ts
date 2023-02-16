@@ -38,6 +38,10 @@ const SEO: DefaultSeoProps = {
       name: 'theme-color',
       content: '#0e0e11',
     },
+    {
+      name: 'keywords',
+      content: 'cat amenities, doover challenge',
+    },
   ],
   additionalLinkTags: [
     {
