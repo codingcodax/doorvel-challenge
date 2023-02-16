@@ -20,7 +20,7 @@ const MyCard = ({ id, side, name, amenityType }: Props) => {
             <Typography color='text.secondary' fontSize={13}>
               {side}
             </Typography>
-            <Typography>{name}</Typography>
+            <Typography noWrap>{name}</Typography>
           </Grid>
 
           <Grid item xs='auto'>
