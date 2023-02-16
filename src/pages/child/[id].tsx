@@ -20,7 +20,6 @@ export const getServerSideProps: GetServerSideProps<Props> = async (
   return { props: { amenityParent, amenityChild } };
 };
 
-// eslint-disable-next-line react/prop-types
 const Child: NextPage<Props> = ({ amenityParent, amenityChild }: Props) => {
   return (
     <Container maxWidth='lg'>
