@@ -1,10 +1,19 @@
-import { Box, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 
-const Title = () => {
+type Props = {
+  children: React.ReactNode;
+};
+
+const Title = ({ children }: Props) => {
   return (
-    <Box>
-      <Typography>Title</Typography>
-    </Box>
+    <Typography
+      component='h2'
+      lineHeight='1'
+      textAlign='center'
+      textTransform='uppercase'
+    >
+      {children}
+    </Typography>
   );
 };
 
