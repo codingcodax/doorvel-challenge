@@ -29,7 +29,7 @@ const SearchBar = ({
       inputValue={inputValue}
       options={options}
       renderInput={(params) => <TextField {...params} label='Child' />}
-      sx={{ width: 300 }}
+      sx={{ width: 300, justifySelf: 'end' }}
       value={value}
       onChange={onChange}
       onInputChange={onInputChange}
