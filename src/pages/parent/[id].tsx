@@ -1,5 +1,7 @@
 import type { GetStaticProps, NextPage } from 'next';
 import { Box, Container, Typography } from '@mui/material';
+import type { SyntheticEvent } from 'react';
+import { useMemo, useState } from 'react';
 
 import type { AmenityChild, AmenityParent } from '~/types/amenities';
 import {
@@ -7,7 +9,7 @@ import {
   getAmenitiesChildsByParentId,
   getAmenityParent,
 } from '~/lib/amenity';
-import { ChildsCards } from '~/components';
+import { ChildsCards, GoBack, NavBar, SearchBar, Title } from '~/components';
 
 export const getStaticPaths = async () => {
   const amenitiesParents = await getAmenitiesParents();
@@ -34,15 +36,46 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
 
 // eslint-disable-next-line react/prop-types
 const Parent: NextPage<Props> = ({ amenityParent, amenitiesChilds }: Props) => {
+  const [value, setValue] = useState<string | null>(null);
+  const [inputValue, setInputValue] = useState('');
+
+  const filteredAmenitiesChilds = useMemo(() => {
+    return amenitiesChilds.filter((amenity) =>
+      amenity.name.toLowerCase().includes(inputValue.toLowerCase())
+    );
+  }, [amenitiesChilds, inputValue]);
+
+  const autocompleteOnChange = (
+    _: SyntheticEvent<Element, Event>,
+    newValue: string | null
+  ) => {
+    setValue(newValue);
+  };
+
+  const autocompleteOnInputChange = (
+    _: SyntheticEvent<Element, Event>,
+    newInputValue: string
+  ) => {
+    setInputValue(newInputValue);
+  };
+
   return (
     <Container maxWidth='lg'>
+      <NavBar>
+        <GoBack href={`/`} />
+        <Title>Parent: {amenityParent.name}</Title>
+        <SearchBar
+          inputValue={inputValue}
+          options={amenitiesChilds.map((amenity) => amenity.name)}
+          value={value}
+          onChange={autocompleteOnChange}
+          onInputChange={autocompleteOnInputChange}
+        />
+      </NavBar>
       <Box>
-        <Typography component='h2' textAlign='center' textTransform='uppercase'>
-          Parent: {amenityParent.name}
-        </Typography>
         <Typography>Select one:</Typography>
 
-        <ChildsCards items={amenitiesChilds} />
+        <ChildsCards items={filteredAmenitiesChilds} />
       </Box>
     </Container>
   );
