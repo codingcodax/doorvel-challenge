@@ -34,7 +34,6 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
   return { props: { amenityParent, amenitiesChilds } };
 };
 
-// eslint-disable-next-line react/prop-types
 const Parent: NextPage<Props> = ({ amenityParent, amenitiesChilds }: Props) => {
   const [value, setValue] = useState<string | null>(null);
   const [inputValue, setInputValue] = useState('');
