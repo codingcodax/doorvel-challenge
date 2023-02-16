@@ -1,10 +1,39 @@
-import { Box, Typography } from '@mui/material';
+import { Autocomplete, TextField } from '@mui/material';
+import type { SyntheticEvent } from 'react';
 
-const SearchBar = () => {
+type Props = {
+  inputValue: string;
+  value: string | null;
+  onChange: (
+    _: SyntheticEvent<Element, Event>,
+    newValue: string | null
+  ) => void;
+  onInputChange: (
+    _: SyntheticEvent<Element, Event>,
+    newInputValue: string
+  ) => void;
+  options: string[];
+};
+
+const SearchBar = ({
+  inputValue,
+  value,
+  onChange,
+  onInputChange,
+  options,
+}: Props) => {
   return (
-    <Box>
-      <Typography>SearchBar</Typography>
-    </Box>
+    <Autocomplete
+      disablePortal
+      id='searchbar'
+      inputValue={inputValue}
+      options={options}
+      renderInput={(params) => <TextField {...params} label='Child' />}
+      sx={{ width: 300 }}
+      value={value}
+      onChange={onChange}
+      onInputChange={onInputChange}
+    />
   );
 };
 
