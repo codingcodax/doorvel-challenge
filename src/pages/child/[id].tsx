@@ -1,17 +1,9 @@
 import type { GetServerSideProps, NextPage } from 'next';
-import { ArrowBackIos } from '@mui/icons-material';
-import {
-  Box,
-  Button,
-  Container,
-  Grid,
-  Typography,
-  useMediaQuery,
-} from '@mui/material';
+import { Box, Container, Typography } from '@mui/material';
 
 import { getAmenityChild, getAmenityParent } from '~/lib/amenity';
 import type { AmenityParent, AmenityChild } from '~/types/amenities';
-import { Link } from '~/components/ui';
+import { GoBack, NavBar, Title } from '~/components';
 
 type Props = {
   amenityParent: AmenityParent;
@@ -30,29 +22,14 @@ export const getServerSideProps: GetServerSideProps<Props> = async (
 };
 
 const Child: NextPage<Props> = ({ amenityParent, amenityChild }: Props) => {
-  const matches = useMediaQuery('(min-width:600px)');
-
   return (
     <Container maxWidth='lg'>
+      <NavBar>
+        <GoBack href={`/parent/${amenityChild.amenity_parent}`} />
+        <Title>Parent: {amenityParent.name}</Title>
+        <Box />
+      </NavBar>
       <Box>
-        <Grid container alignItems='center' direction='row'>
-          <Button
-            component={Link}
-            href={`/parent/${amenityParent.id}`}
-            sx={{ mr: 1 }}
-          >
-            <ArrowBackIos />
-            {matches ? 'Go Back' : ''}
-          </Button>
-          <Typography
-            component='h2'
-            lineHeight='1'
-            textAlign='center'
-            textTransform='uppercase'
-          >
-            Parent: {amenityParent.name}
-          </Typography>
-        </Grid>
         <Typography>Name: {amenityChild.name}</Typography>
         <Typography>Parent ID: {amenityChild.amenity_parent}</Typography>
         <Typography>Category ID: {amenityChild.property_category}</Typography>
