@@ -9,7 +9,14 @@ import {
   getAmenitiesChildsByParentId,
   getAmenityParent,
 } from '~/lib/amenity';
-import { ChildsCards, GoBack, NavBar, SearchBar, Title } from '~/components';
+import {
+  ChildsCards,
+  GoBack,
+  NavBar,
+  SearchBar,
+  Seo,
+  Title,
+} from '~/components';
 
 export const getStaticPaths = async () => {
   const amenitiesParents = await getAmenitiesParents();
@@ -59,24 +66,34 @@ const Parent: NextPage<Props> = ({ amenityParent, amenitiesChilds }: Props) => {
   };
 
   return (
-    <Container maxWidth='lg'>
-      <NavBar>
-        <GoBack href={`/`} />
-        <Title>Parent: {amenityParent.name}</Title>
-        <SearchBar
-          inputValue={inputValue}
-          options={amenitiesChilds.map((amenity) => amenity.name)}
-          value={value}
-          onChange={autocompleteOnChange}
-          onInputChange={autocompleteOnInputChange}
-        />
-      </NavBar>
-      <Box>
-        <Typography>Select one:</Typography>
+    <>
+      <Seo
+        description='Amenity parent page with a list of amenities childs'
+        keywords={amenityParent.name}
+        name={amenityParent.name}
+        ogImage='og-parent.png'
+        path={`/parent/${amenityParent.id}`}
+      />
 
-        <ChildsCards items={filteredAmenitiesChilds} />
-      </Box>
-    </Container>
+      <Container maxWidth='lg'>
+        <NavBar>
+          <GoBack href={`/`} />
+          <Title>Parent: {amenityParent.name}</Title>
+          <SearchBar
+            inputValue={inputValue}
+            options={amenitiesChilds.map((amenity) => amenity.name)}
+            value={value}
+            onChange={autocompleteOnChange}
+            onInputChange={autocompleteOnInputChange}
+          />
+        </NavBar>
+        <Box>
+          <Typography>Select one:</Typography>
+
+          <ChildsCards items={filteredAmenitiesChilds} />
+        </Box>
+      </Container>
+    </>
   );
 };
 

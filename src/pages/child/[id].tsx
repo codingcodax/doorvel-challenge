@@ -3,7 +3,7 @@ import { Box, Container, Typography } from '@mui/material';
 
 import { getAmenityChild, getAmenityParent } from '~/lib/amenity';
 import type { AmenityParent, AmenityChild } from '~/types/amenities';
-import { GoBack, NavBar, Title } from '~/components';
+import { GoBack, NavBar, Seo, Title } from '~/components';
 
 type Props = {
   amenityParent: AmenityParent;
@@ -23,18 +23,28 @@ export const getServerSideProps: GetServerSideProps<Props> = async (
 
 const Child: NextPage<Props> = ({ amenityParent, amenityChild }: Props) => {
   return (
-    <Container maxWidth='lg'>
-      <NavBar>
-        <GoBack href={`/parent/${amenityChild.amenity_parent}`} />
-        <Title>Parent: {amenityParent.name}</Title>
-        <Box />
-      </NavBar>
-      <Box>
-        <Typography>Name: {amenityChild.name}</Typography>
-        <Typography>Parent ID: {amenityChild.amenity_parent}</Typography>
-        <Typography>Category ID: {amenityChild.property_category}</Typography>
-      </Box>
-    </Container>
+    <>
+      <Seo
+        description='Amenity child page with his details'
+        keywords={amenityChild.name}
+        name={amenityChild.name}
+        ogImage='og-child.png'
+        path={`/child/${amenityChild.id}`}
+      />
+
+      <Container maxWidth='lg'>
+        <NavBar>
+          <GoBack href={`/parent/${amenityChild.amenity_parent}`} />
+          <Title>Parent: {amenityParent.name}</Title>
+          <Box />
+        </NavBar>
+        <Box>
+          <Typography>Name: {amenityChild.name}</Typography>
+          <Typography>Parent ID: {amenityChild.amenity_parent}</Typography>
+          <Typography>Category ID: {amenityChild.property_category}</Typography>
+        </Box>
+      </Container>
+    </>
   );
 };
 
