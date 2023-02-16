@@ -8,11 +8,11 @@ type Props = {
 };
 
 const GoBack = ({ href }: Props) => {
-  const matches = useMediaQuery('(min-width:600px)');
+  const matches = useMediaQuery('(max-width:600px)');
   return (
     <Button component={Link} href={href} sx={{ mr: 1, justifySelf: 'start' }}>
       <KeyboardArrowLeft />
-      {matches ? 'Go Back' : ''}
+      {matches ? '' : 'Go Back'}
     </Button>
   );
 };
