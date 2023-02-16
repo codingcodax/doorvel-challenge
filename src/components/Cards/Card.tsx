@@ -1,8 +1,10 @@
-import { Card, Button, CardContent, Typography, Grid } from '@mui/material';
-import { ArrowForwardIos } from '@mui/icons-material';
+import { Card, Typography, } from '@mui/material';
+import { grey } from '@mui/material/colors';
 
 import type { AmenityChild, AmenityParent } from '~/types/amenities';
 import { Link } from '~/components/ui';
+
+import theme from '~/styles/theme';
 
 type Props = {
   id: AmenityParent['id'] | AmenityChild['id'];
@@ -13,27 +15,29 @@ type Props = {
 
 const MyCard = ({ id, side, name, amenityType }: Props) => {
   return (
-    <Card sx={{ boxShadow: 'none' }}>
-      <CardContent>
-        <Grid container direction='row' justifyContent='space-between'>
-          <Grid item xs='auto'>
-            <Typography color='text.secondary' fontSize={13}>
-              {side}
-            </Typography>
-            <Typography noWrap>{name}</Typography>
-          </Grid>
-
-          <Grid item xs='auto'>
-            <Button
-              noLinkStyle
-              component={Link}
-              href={`/${amenityType === 'parent' ? 'parent' : 'child'}/${id}`}
-            >
-              <ArrowForwardIos />
-            </Button>
-          </Grid>
-        </Grid>
-      </CardContent>
+    <Card
+      noLinkStyle
+      component={Link}
+      href={`/${amenityType === 'parent' ? 'parent' : 'child'}/${id}`}
+      sx={{
+        display: 'inline-block',
+        height: '100%',
+        width: '100%',
+        padding: 1,
+        boxShadow: 'none',
+        border: `1px solid transparent`,
+        borderRadius: 0,
+        backgroundColor: grey[100],
+        ':hover': { color: theme.palette.primary.main, borderColor: grey[300] },
+        transition: 'ease-in-out 200ms',
+        transitionProperty: 'color, border',
+        textDecoration: 'none',
+      }}
+    >
+      <Typography color='text.secondary' fontSize={13}>
+        {side}
+      </Typography>
+      <Typography noWrap>{name}</Typography>
     </Card>
   );
 };
