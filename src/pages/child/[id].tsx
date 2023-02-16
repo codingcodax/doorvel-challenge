@@ -26,7 +26,7 @@ const Child: NextPage<Props> = ({ amenityParent, amenityChild }: Props) => {
     <Container maxWidth='lg'>
       <Box>
         <Typography component='h2' textAlign='center' textTransform='uppercase'>
-          Parent: ${amenityParent.name}
+          Parent: {amenityParent.name}
         </Typography>
         <Typography>Name: {amenityChild.name}</Typography>
         <Typography>Parent ID: {amenityChild.id}</Typography>
