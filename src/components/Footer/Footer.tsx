@@ -2,7 +2,7 @@ import { Box, Link, Typography } from '@mui/material';
 
 const Footer = () => {
   return (
-    <Box component='footer' pb={1}>
+    <Box component='footer' mt={2} pb={1}>
       <Typography textAlign='center'>
         Website built by{' '}
         <Link
