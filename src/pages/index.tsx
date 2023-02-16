@@ -17,8 +17,7 @@ type HomeProps = {
   amenitiesParents: AmenityParent[];
 };
 
-// eslint-disable-next-line react/prop-types
-const Home: NextPage<HomeProps> = ({ amenitiesParents }) => {
+const Home: NextPage<HomeProps> = ({ amenitiesParents }: HomeProps) => {
   return (
     <Container maxWidth='lg'>
       <Box>
