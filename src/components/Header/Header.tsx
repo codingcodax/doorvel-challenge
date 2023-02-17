@@ -16,17 +16,11 @@ const Header = () => {
         pt={1}
       >
         <LogoIcon />
-        <Typography
-          component='h1'
-          fontSize={20}
-          fontWeight='bold'
-          lineHeight='1'
-          ml={2}
-        >
+        <Typography component='h1' fontSize={20} fontWeight='bold' ml={2}>
           <Link
             noLinkStyle
             href='/'
-            sx={{ color: '#000', textDecoration: 'none' }}
+            sx={{ color: 'text.primary', textDecoration: 'none' }}
           >
             Cat Amenities
           </Link>
