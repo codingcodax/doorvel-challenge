@@ -1,12 +1,11 @@
-import type { DefaultSeoProps } from 'next-seo';
 import { NextSeo } from 'next-seo';
 
 import { domain } from 'next-seo.config';
 
 type Props = {
-  name: DefaultSeoProps['title'];
+  name: string;
   path: string;
-  description: DefaultSeoProps['description'];
+  description: string;
   keywords: string;
   ogImage: string;
 };
