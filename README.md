@@ -23,7 +23,9 @@
 
 - [x] Filter amenities childs
 - [x] Add dark theme
-- [ ] Add card skeleton when loading
+- [ ] Add 404 not found page
+- [ ] Add amenities childs pagination
+- [ ] Add card skeleton when loading (with streaming and suspens)
 - [ ] Add `save to favorites` (authentication needed? or local storage) (state management?)
 - [ ] Add images to amenities childs with unsplash (masonry?) but first:
 - [ ] Translate `name` text with an API for unsplash
