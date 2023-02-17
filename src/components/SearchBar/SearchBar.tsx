@@ -28,6 +28,7 @@ const SearchBar = ({
 
   return (
     <Autocomplete
+      blurOnSelect
       disablePortal
       id='searchbar'
       inputValue={inputValue}
@@ -36,9 +37,9 @@ const SearchBar = ({
         <TextField
           {...params}
           label='Child'
-          margin={isMobileSize ? 'dense' : 'none'}
+          margin='none'
           placeholder='Alarma'
-          variant='filled'
+          variant='standard'
         />
       )}
       size='small'
