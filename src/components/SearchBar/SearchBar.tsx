@@ -1,7 +1,7 @@
 import type { SyntheticEvent } from 'react';
 import { Autocomplete, TextField } from '@mui/material';
 
-import { useMobileSize } from '~/hooks';
+import { useMediaQuery } from '~/hooks';
 
 type Props = {
   inputValue: string;
@@ -24,7 +24,7 @@ const SearchBar = ({
   onInputChange,
   options,
 }: Props) => {
-  const isMobileSize = useMobileSize();
+  const [, isTabletSize] = useMediaQuery();
 
   return (
     <Autocomplete
@@ -44,9 +44,9 @@ const SearchBar = ({
       )}
       size='small'
       sx={{
-        width: isMobileSize ? '100%' : 300,
+        width: isTabletSize ? '100%' : 300,
         justifySelf: 'end',
-        gridColumn: isMobileSize ? 'span 2' : '',
+        gridColumn: isTabletSize ? 'span 2' : '',
       }}
       value={value}
       onChange={onChange}

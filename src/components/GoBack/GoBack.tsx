@@ -2,14 +2,14 @@ import { KeyboardArrowLeft } from '@mui/icons-material';
 import { Button, IconButton } from '@mui/material';
 
 import { Link } from '~/components/ui';
-import { useMobileSize } from '~/hooks';
+import { useMediaQuery } from '~/hooks';
 
 type Props = {
   href: string;
 };
 
 const GoBack = ({ href }: Props) => {
-  const isMobileSize = useMobileSize();
+  const [isMobileSize] = useMediaQuery();
 
   if (isMobileSize)
     return (
