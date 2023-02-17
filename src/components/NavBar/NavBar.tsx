@@ -10,7 +10,7 @@ const NavBar = ({ children }: Props) => {
     <Box
       alignItems='center'
       display='grid'
-      gridTemplateColumns={`${matches ? '' : '1fr'} auto 1fr`}
+      gridTemplateColumns={`${matches ? '' : 'auto'} auto 1fr`}
       mb={1}
     >
       {children}
