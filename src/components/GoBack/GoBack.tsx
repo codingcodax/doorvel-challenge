@@ -28,9 +28,9 @@ const GoBack = ({ href }: Props) => {
     <Button
       component={Link}
       href={href}
+      size='small'
       startIcon={<KeyboardArrowLeft />}
       sx={{ justifySelf: 'start', borderRadius: 0 }}
-      size='small'
     >
       Go Back
     </Button>
