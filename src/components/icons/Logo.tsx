@@ -2,7 +2,7 @@ import { SvgIcon } from '@mui/material';
 
 const Logo = () => {
   return (
-    <SvgIcon fontSize='large' viewBox='0 0 40 40'>
+    <SvgIcon viewBox='0 0 40 40'>
       <circle cx='10' cy='10' fill='currentColor' r='5' />
       <circle
         cx='30'
