@@ -6,7 +6,10 @@ import getDesignTokens from '~/styles/theme';
 import { useDarkMode } from '~/hooks';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-function
-export const ColorModeContext = createContext({ toggleColorMode: () => {} });
+export const ColorModeContext = createContext({
+  theme: '',
+  toggleColorMode: () => { },
+});
 
 type Props = {
   children: React.ReactNode;
@@ -20,6 +23,7 @@ const ColorModeProvider = ({ children }: Props) => {
 
   const colorMode = useMemo(
     () => ({
+      theme: mode,
       toggleColorMode: () => {
         setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
         set('theme', mode === 'light' ? 'dark' : 'light');
