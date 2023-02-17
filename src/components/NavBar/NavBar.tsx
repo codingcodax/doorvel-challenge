@@ -1,13 +1,13 @@
 import { Box } from '@mui/material';
 
-import { useIsMobileSize } from '~/hooks';
+import { useMobileSize } from '~/hooks';
 
 type Props = {
   children: React.ReactNode;
 };
 
 const NavBar = ({ children }: Props) => {
-  const isMobileSize = useIsMobileSize();
+  const isMobileSize = useMobileSize();
 
   return (
     <Box
