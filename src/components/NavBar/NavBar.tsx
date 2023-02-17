@@ -13,6 +13,7 @@ const NavBar = ({ children }: Props) => {
     <Box
       alignItems='center'
       display='grid'
+      gap={1}
       gridTemplateColumns={`${isMobileSize ? '' : 'auto'} auto 1fr`}
       mb={1}
     >
