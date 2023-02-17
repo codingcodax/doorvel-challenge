@@ -8,6 +8,9 @@ const Footer = () => {
         <Link
           href='https://www.codingcodax.dev/'
           rel='noopener noreferrer'
+          sx={{
+            textDecorationStyle: 'wavy',
+          }}
           target='_blank'
         >
           @codingcodax
