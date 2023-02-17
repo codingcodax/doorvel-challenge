@@ -15,7 +15,7 @@ const NavBar = ({ children }: Props) => {
       display='grid'
       gap={1}
       gridTemplateColumns={`${isMobileSize ? '' : 'auto'} auto 1fr`}
-      mb={1}
+      mb={4}
     >
       {children}
     </Box>
