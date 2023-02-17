@@ -20,7 +20,8 @@
 - Typesafe
 
 ### Roadmap
-- [X] Filter amenities childs
+
+- [x] Filter amenities childs
 - [ ] Add dark theme
 - [ ] Add `save to favorites` (authentication needed? or local storage) (state management?)
 - [ ] Add images to amenities childs with unsplash (masonry?) but first:

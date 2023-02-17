@@ -5,7 +5,7 @@ import { useDarkMode } from '~/hooks';
 import getDesignTokens from '~/styles/theme';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-function
-export const ColorModeContext = createContext({ toggleColorMode: () => { } });
+export const ColorModeContext = createContext({ toggleColorMode: () => {} });
 
 type Props = {
   children: React.ReactNode;
