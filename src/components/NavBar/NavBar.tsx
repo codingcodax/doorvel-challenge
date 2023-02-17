@@ -1,16 +1,19 @@
-import { Box, useMediaQuery } from '@mui/material';
+import { Box } from '@mui/material';
+
+import { useIsMobileSize } from '~/hooks';
 
 type Props = {
   children: React.ReactNode;
 };
 
 const NavBar = ({ children }: Props) => {
-  const matches = useMediaQuery('(max-width:600px)');
+  const isMobileSize = useIsMobileSize();
+
   return (
     <Box
       alignItems='center'
       display='grid'
-      gridTemplateColumns={`${matches ? '' : 'auto'} auto 1fr`}
+      gridTemplateColumns={`${isMobileSize ? '' : 'auto'} auto 1fr`}
       mb={1}
     >
       {children}

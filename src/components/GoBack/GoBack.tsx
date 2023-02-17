@@ -1,15 +1,17 @@
 import { KeyboardArrowLeft } from '@mui/icons-material';
-import { Button, IconButton, useMediaQuery } from '@mui/material';
+import { Button, IconButton } from '@mui/material';
 
 import { Link } from '~/components/ui';
+import { useIsMobileSize } from '~/hooks';
 
 type Props = {
   href: string;
 };
 
 const GoBack = ({ href }: Props) => {
-  const matches = useMediaQuery('(max-width:600px)');
-  if (matches)
+  const isMobileSize = useIsMobileSize();
+
+  if (isMobileSize)
     return (
       <IconButton
         aria-label='go back'

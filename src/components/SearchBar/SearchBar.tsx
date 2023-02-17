@@ -1,5 +1,7 @@
-import { Autocomplete, TextField, useMediaQuery } from '@mui/material';
 import type { SyntheticEvent } from 'react';
+import { Autocomplete, TextField } from '@mui/material';
+
+import { useIsMobileSize } from '~/hooks';
 
 type Props = {
   inputValue: string;
@@ -22,7 +24,8 @@ const SearchBar = ({
   onInputChange,
   options,
 }: Props) => {
-  const matches = useMediaQuery('(max-width:600px)');
+  const isMobileSize = useIsMobileSize();
+
   return (
     <Autocomplete
       disablePortal
@@ -33,16 +36,16 @@ const SearchBar = ({
         <TextField
           {...params}
           label='Child'
-          margin={matches ? 'dense' : 'none'}
+          margin={isMobileSize ? 'dense' : 'none'}
           placeholder='Alarma'
           variant='filled'
         />
       )}
       size='small'
       sx={{
-        width: matches ? '100%' : 300,
+        width: isMobileSize ? '100%' : 300,
         justifySelf: 'end',
-        gridColumn: matches ? 'span 2' : '',
+        gridColumn: isMobileSize ? 'span 2' : '',
       }}
       value={value}
       onChange={onChange}
