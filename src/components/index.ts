@@ -8,3 +8,4 @@ export { default as NavBar } from './NavBar';
 export { default as SearchBar } from './SearchBar';
 export { default as Seo } from './Seo';
 export { default as Title } from './Title';
+export { default as ToggleTheme } from './ToggleTheme';
