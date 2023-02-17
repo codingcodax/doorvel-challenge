@@ -18,6 +18,7 @@ const GoBack = ({ href }: Props) => {
         color='primary'
         component={Link}
         href={href}
+        sx={{ borderRadius: 0 }}
       >
         <KeyboardArrowLeft />
       </IconButton>
@@ -28,7 +29,8 @@ const GoBack = ({ href }: Props) => {
       component={Link}
       href={href}
       startIcon={<KeyboardArrowLeft />}
-      sx={{ justifySelf: 'start' }}
+      sx={{ justifySelf: 'start', borderRadius: 0 }}
+      size='small'
     >
       Go Back
     </Button>
