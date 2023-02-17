@@ -10,6 +10,7 @@ export const roboto = Roboto({
 
 const theme = createTheme({
   palette: {
+    mode: 'dark',
     primary: {
       main: '#6e56cf',
     },
