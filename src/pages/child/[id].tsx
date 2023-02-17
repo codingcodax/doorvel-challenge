@@ -1,5 +1,5 @@
 import type { GetServerSideProps, NextPage } from 'next';
-import { Box, Container, Typography } from '@mui/material';
+import { Box, Card, Container, Typography } from '@mui/material';
 
 import { getAmenityChild, getAmenityParent } from '~/lib/amenity';
 import type { AmenityParent, AmenityChild } from '~/types/amenities';
@@ -38,11 +38,35 @@ const Child: NextPage<Props> = ({ amenityParent, amenityChild }: Props) => {
           <Title>Parent: {amenityParent.name}</Title>
           <Box />
         </NavBar>
-        <Box>
-          <Typography>Name: {amenityChild.name}</Typography>
-          <Typography>Parent ID: {amenityChild.amenity_parent}</Typography>
-          <Typography>Category ID: {amenityChild.property_category}</Typography>
-        </Box>
+        <Card
+          sx={{
+            display: 'inline-block',
+            padding: 2,
+            textDecoration: 'none',
+            backgroundColor: 'background.subtle',
+            border: `1px solid transparent`,
+            borderRadius: 0,
+            boxShadow: 'none',
+            transition: 'ease-in-out 200ms',
+            transitionProperty: 'color, border',
+            ':hover': {
+              borderColor: 'border.hover',
+            },
+          }}
+        >
+          <Typography color='text.secondary' variant='caption'>
+            ID: {amenityChild.id}
+          </Typography>
+          <Typography noWrap component='h1'>
+            {amenityChild.name}
+          </Typography>
+          <Typography mr={2} variant='overline'>
+            Parent ID: {amenityChild.amenity_parent}
+          </Typography>
+          <Typography variant='overline'>
+            Category ID: {amenityChild.property_category}
+          </Typography>
+        </Card>
       </Container>
     </>
   );
