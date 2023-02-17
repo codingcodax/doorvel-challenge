@@ -1,10 +1,7 @@
 import { Card, Typography } from '@mui/material';
-import { grey } from '@mui/material/colors';
 
 import type { AmenityChild, AmenityParent } from '~/types/amenities';
 import { Link } from '~/components/ui';
-import theme from '~/styles/theme';
-import { useDarkMode } from '~/hooks';
 
 type Props = {
   id: AmenityParent['id'] | AmenityChild['id'];
@@ -14,7 +11,6 @@ type Props = {
 };
 
 const MyCard = ({ id, side, name, amenityType }: Props) => {
-  const isDarkMode = useDarkMode();
   return (
     <Card
       noLinkStyle
@@ -22,23 +18,23 @@ const MyCard = ({ id, side, name, amenityType }: Props) => {
       href={`/${amenityType === 'parent' ? 'parent' : 'child'}/${id}`}
       sx={{
         display: 'inline-block',
+        padding: 1,
         height: '100%',
         width: '100%',
-        padding: 1,
-        boxShadow: 'none',
+        textDecoration: 'none',
+        backgroundColor: 'background.subtle',
         border: `1px solid transparent`,
         borderRadius: 0,
-        backgroundColor: isDarkMode ? grey[900] : grey[100],
-        ':hover': {
-          color: theme.palette.primary.main,
-          borderColor: isDarkMode ? grey[700] : grey[300],
-        },
+        boxShadow: 'none',
         transition: 'ease-in-out 200ms',
         transitionProperty: 'color, border',
-        textDecoration: 'none',
+        ':hover': {
+          color: 'primary.main',
+          borderColor: 'border.hover',
+        },
       }}
     >
-      <Typography color='text.secondary' fontSize={13}>
+      <Typography color='text.secondary' variant='caption'>
         {side}
       </Typography>
       <Typography noWrap>{name}</Typography>
