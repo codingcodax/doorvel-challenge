@@ -88,7 +88,7 @@ const Parent: NextPage<Props> = ({ amenityParent, amenitiesChilds }: Props) => {
           />
         </NavBar>
         <Box>
-          <Typography>Select one:</Typography>
+          <Typography>Select one child amenity to see his details:</Typography>
 
           <ChildsCards items={filteredAmenitiesChilds} />
         </Box>

@@ -29,7 +29,7 @@ const Home: NextPage<HomeProps> = ({ amenitiesParents }: HomeProps) => {
         >
           Parents
         </Typography>
-        <Typography>Select one:</Typography>
+        <Typography>Select one parent amenity to see his relationed childs amenities:</Typography>
 
         <ParentsCards items={amenitiesParents} />
       </Box>
