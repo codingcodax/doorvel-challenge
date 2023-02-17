@@ -29,7 +29,16 @@ const SearchBar = ({
       id='searchbar'
       inputValue={inputValue}
       options={options}
-      renderInput={(params) => <TextField {...params} label='Child' />}
+      renderInput={(params) => (
+        <TextField
+          {...params}
+          label='Child'
+          margin={matches ? 'dense' : 'none'}
+          placeholder='Alarma'
+          variant='filled'
+        />
+      )}
+      size='small'
       sx={{
         width: matches ? '100%' : 300,
         justifySelf: 'end',
