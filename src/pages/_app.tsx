@@ -1,13 +1,12 @@
 import type { AppProps } from 'next/app';
-import { ThemeProvider } from '@mui/material/styles';
 import { CssBaseline } from '@mui/material';
 import { DefaultSeo } from 'next-seo';
 import type { EmotionCache } from '@emotion/react';
 import { CacheProvider } from '@emotion/react';
 
 import { Layout } from '~/components';
-import theme from '~/styles/theme';
 import createEmotionCache from '~/utils/createEmotionCache';
+import { ColorModeProvider } from '~/contexts';
 
 import SEO from 'next-seo.config';
 
@@ -25,21 +24,13 @@ const MyApp = ({
 }: MyAppProps) => {
   return (
     <CacheProvider value={emotionCache}>
-      {/* eslint-disable-next-line react/no-unknown-property */}
-      <style global jsx>{`
-        #__next {
-          min-height: 100vh;
-          display: grid;
-          grid-template-rows: auto 1fr auto;
-        }
-      `}</style>
       <DefaultSeo {...SEO} />
-      <ThemeProvider theme={theme}>
+      <ColorModeProvider>
         <CssBaseline />
         <Layout>
           <Component {...pageProps} />
         </Layout>
-      </ThemeProvider>
+      </ColorModeProvider>
     </CacheProvider>
   );
 };
