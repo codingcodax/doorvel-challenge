@@ -22,7 +22,10 @@
 ### Roadmap
 - [X] Filter amenities childs
 - [ ] Add dark theme
-- [ ] Add a feature to use state management
+- [ ] Add `save to favorites` (authentication needed? or local storage) (state management?)
+- [ ] Add images to amenities childs with unsplash (masonry?) but first:
+- [ ] Translate `name` text with an API for unsplash
+- [ ] Generate og image for `amenities childs` dynamically
 
 ### Techstack
 
