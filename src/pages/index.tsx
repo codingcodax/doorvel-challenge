@@ -21,7 +21,12 @@ const Home: NextPage<HomeProps> = ({ amenitiesParents }: HomeProps) => {
   return (
     <Container maxWidth='lg'>
       <Box>
-        <Typography component='h2' textAlign='center' textTransform='uppercase'>
+        <Typography
+          component='h2'
+          mb={4}
+          textAlign='center'
+          textTransform='uppercase'
+        >
           Parents
         </Typography>
         <Typography>Select one:</Typography>
