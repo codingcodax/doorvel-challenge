@@ -24,8 +24,8 @@
 
 - [x] Filter amenities childs
 - [x] Add dark theme
-- [ ] Add 404 not found page
-- [ ] Add `toggleTheme` button
+- [x] Add 404 not found page
+- [x] Add `toggleTheme` button
 - [ ] Add amenities childs pagination
 - [ ] Add card skeleton when loading (with streaming and suspens)
 - [ ] Add `save to favorites` (authentication needed? or local storage) (state management?)
