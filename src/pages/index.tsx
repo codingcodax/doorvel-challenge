@@ -1,12 +1,13 @@
 import type { GetStaticProps, NextPage } from 'next';
 import { Box, Container, Typography } from '@mui/material';
 
+import type amenitiesParents from '~/data/amenitiesParents.json';
 import type { AmenityParent } from '~/types/amenities';
 import { getAmenitiesParents } from '~/lib/amenity';
 import { ParentsCards } from '~/components';
 
 export const getStaticProps: GetStaticProps<{
-  amenitiesParents: AmenityParent[];
+  amenitiesParents: AmenityParent[] | typeof amenitiesParents.data;
 }> = async () => {
   const amenitiesParents = await getAmenitiesParents();
 

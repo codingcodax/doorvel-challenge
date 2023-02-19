@@ -4,6 +4,8 @@ import type { SyntheticEvent } from 'react';
 import { useMemo, useState } from 'react';
 
 import type { AmenityChild, AmenityParent } from '~/types/amenities';
+import type amenitiesParents from '~/data/amenitiesParents.json';
+import type amenitiesChilds from '~/data/amenitiesChilds.json';
 import {
   getAmenitiesParents,
   getAmenitiesChildsByParentId,
@@ -28,8 +30,8 @@ export const getStaticPaths = async () => {
 };
 
 type Props = {
-  amenityParent: AmenityParent;
-  amenitiesChilds: AmenityChild[];
+  amenityParent: AmenityParent | (typeof amenitiesParents.data)[0];
+  amenitiesChilds: AmenityChild[] | typeof amenitiesChilds.results;
 };
 
 export const getStaticProps: GetStaticProps<Props> = async (context) => {
