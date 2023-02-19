@@ -96,7 +96,18 @@ export const getAmenityChild = async (id: number) => {
 
     return amenityChild;
   } catch (error) {
-    const amenityChild = amenitiesChilds.filter((amenity) => amenity.id == id);
+    const amenityChild = amenitiesChilds.filter(
+      (amenity) => amenity.id == id
+    )[0];
+
+    if (!amenityChild)
+      return {
+        id: 1,
+        name: 'Accesibilidad para adultos mayores',
+        seo_friendly: 'accesibilidad-para-adultos-mayores',
+        property_category: 1,
+        amenity_parent: 1,
+      };
 
     return amenityChild;
   }
