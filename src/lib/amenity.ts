@@ -4,56 +4,100 @@ import type {
   AmenityChild,
   AmenityParent,
 } from '~/types/amenities';
+import { data as amenitiesParents } from '~/data/amenitiesParents.json';
+import { results as amenitiesChilds } from '~/data/amenitiesChilds.json';
 
 export const getAmenitiesParents = async () => {
-  const res = await fetch(
-    'http://54.177.198.128:8001/api/cat-amenities-parents/'
-  );
+  try {
+    const res = await fetch(
+      'http://54.177.198.128:8001/api/cat-amenities-parents/'
+    );
 
-  const { data: amenitiesParents } = (await res.json()) as RawAmenityParent;
+    const { data: amenitiesParents } = (await res.json()) as RawAmenityParent;
 
-  return amenitiesParents;
+    return amenitiesParents;
+  } catch (error) {
+    return amenitiesParents;
+  }
 };
 
 export const getAmenityParent = async (id: number) => {
-  const res = await fetch(
-    `http://54.177.198.128:8001/api/cat-amenities-parents/${id}`
-  );
-  const amenityParent = (await res.json()) as AmenityParent;
+  try {
+    const res = await fetch(
+      `http://54.177.198.128:8001/api/cat-amenities-parents/${id}`
+    );
+    const amenityParent = (await res.json()) as AmenityParent;
 
-  return amenityParent;
+    return amenityParent;
+  } catch (error) {
+    const amenityParent = amenitiesParents.filter(
+      (amenity) => amenity.id === id
+    )[0];
+
+    if (!amenityParent)
+      return {
+        id: 1,
+        property_category_id: 1,
+        name: 'Estilo de vida',
+        seo_friendly: 'estilo-de-vida',
+        active_record: true,
+        created_at: '2022-04-15T18:32:29.939524',
+        updated_at: '2022-04-15T18:32:29.939534',
+        created_by: 'Doorvel-TI',
+      };
+
+    return amenityParent;
+  }
 };
 
 export const getAmenitiesChilds = async () => {
-  const res = await fetch(
-    'http://54.177.198.128:8001/api/cat-amenities-childs/'
-  );
+  try {
+    const res = await fetch(
+      'http://54.177.198.128:8001/api/cat-amenities-childs/'
+    );
 
-  const { results: amenitiesChilds } = (await res.json()) as RawAmenityChild;
+    const { results: amenitiesChilds } = (await res.json()) as RawAmenityChild;
 
-  return amenitiesChilds;
+    return amenitiesChilds;
+  } catch (error) {
+    return amenitiesChilds;
+  }
 };
 
 export const getAmenitiesChildsByParentId = async (id: number) => {
-  const res = await fetch(
-    'http://54.177.198.128:8001/api/cat-amenities-childs/'
-  );
+  try {
+    const res = await fetch(
+      'http://54.177.198.128:8001/api/cat-amenities-childs/'
+    );
 
-  const { results: amenitiesChilds } = (await res.json()) as RawAmenityChild;
+    const { results: amenitiesChilds } = (await res.json()) as RawAmenityChild;
 
-  const amenitiesChildsFilter = amenitiesChilds.filter(
-    (amenity) => amenity.amenity_parent == id
-  );
+    const amenitiesChildsFilter = amenitiesChilds.filter(
+      (amenity) => amenity.amenity_parent == id
+    );
 
-  return amenitiesChildsFilter;
+    return amenitiesChildsFilter;
+  } catch (error) {
+    const amenitiesChildesFiler = amenitiesChilds.filter(
+      (amenity) => amenity.amenity_parent == id
+    );
+
+    return amenitiesChildesFiler;
+  }
 };
 
 export const getAmenityChild = async (id: number) => {
-  const res = await fetch(
-    `http://54.177.198.128:8001/api/cat-amenities-childs/${id}`
-  );
+  try {
+    const res = await fetch(
+      `http://54.177.198.128:8001/api/cat-amenities-childs/${id}`
+    );
 
-  const amenityChild = (await res.json()) as AmenityChild;
+    const amenityChild = (await res.json()) as AmenityChild;
 
-  return amenityChild;
+    return amenityChild;
+  } catch (error) {
+    const amenityChild = amenitiesChilds.filter((amenity) => amenity.id == id);
+
+    return amenityChild;
+  }
 };
