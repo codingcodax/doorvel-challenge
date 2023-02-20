@@ -6,8 +6,8 @@ export const amenityParent = z.object({
   seo_friendly: z.string(),
   property_category_id: z.number(),
   active_record: z.boolean(),
-  created_at: z.date(),
-  updated_at: z.date(),
+  created_at: z.string(),
+  updated_at: z.string(),
   created_by: z.string(),
 });
 
