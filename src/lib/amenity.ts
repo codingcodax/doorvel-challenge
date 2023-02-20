@@ -32,9 +32,7 @@ export const getAmenityParent = async (id: number) => {
   } catch (error) {
     const amenityParent = amenitiesParents.filter(
       (amenity) => amenity.id === id
-    )[0];
-
-    if (!amenityParent) return amenitiesParents[0];
+    )[0] || { ...amenitiesParents[0] };
 
     return amenityParent;
   }
