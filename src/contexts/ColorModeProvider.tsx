@@ -5,10 +5,10 @@ import { get, set } from 'local-storage';
 import getDesignTokens from '~/styles/theme';
 import { useDarkMode } from '~/hooks';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-function
 export const ColorModeContext = createContext({
   theme: '',
-  toggleColorMode: () => { },
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  toggleColorMode: () => {},
 });
 
 type Props = {
