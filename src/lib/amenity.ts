@@ -30,11 +30,16 @@ export const getAmenityParent = async (id: number) => {
 
     return amenityParent;
   } catch (error) {
-    const amenityParent = amenitiesParents.filter(
-      (amenity) => amenity.id === id
-    )[0] || { ...amenitiesParents[0] };
-
-    return amenityParent;
+    return {
+      id: 1,
+      property_category_id: 1,
+      name: 'Estilo de vida',
+      seo_friendly: 'estilo-de-vida',
+      active_record: true,
+      created_at: '2022-04-15T18:32:29.939524',
+      updated_at: '2022-04-15T18:32:29.939534',
+      created_by: 'Doorvel-TI',
+    };
   }
 };
 
@@ -84,12 +89,12 @@ export const getAmenityChild = async (id: number) => {
 
     return amenityChild;
   } catch (error) {
-    const amenityChild = amenitiesChilds.filter(
-      (amenity) => amenity.id == id
-    )[0];
-
-    if (!amenityChild) return amenitiesChilds[0];
-
-    return amenityChild;
+    return {
+      id: 1,
+      name: 'Accesibilidad para adultos mayores',
+      seo_friendly: 'accesibilidad-para-adultos-mayores',
+      property_category: 1,
+      amenity_parent: 1,
+    };
   }
 };
